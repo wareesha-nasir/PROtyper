@@ -1,32 +1,41 @@
-const score1=document.getElementsByClassName("score");
-const time=document.getElementsByClassName("timer");
-const endgame=document.getElementsByClassName("end-game-container");
+let timer=5;
 let score=0;
-let timer=12;
-function updateScore() {
-    score++;
-    score1.innerHTML = score;
-  }
-  const timeInterval = setInterval(updateTime, 1000);
-  // Update time
-  function updateTime() {
+let playing;
+
+const ranword= "http://api.quotable.io/random";
+const display=document.getElementById("text")
+const input=document.getElementById("input")
+const scores=document.querySelector("#score")
+const time=document.querySelector("#timer")
+const alerrt=document.querySelector("#message")
+function getrandom()
+{
+  return fetch(ranword)
+  .then(response=>response.json())
+  .then(data=>data.content)
+}
+async function newtext(){
+  const quote=await getrandom()
+  display.innerText=quote
+  input.value=null
+  //console.log(quote)
+setInterval(updatetime,1000);
+setInterval(status,50);
+}
+newtext()
+function updatetime()
+{
+  if(timer>0){
     timer--;
-    time.innerHTML = timer + 's';
-  
-    if (time === 0) {
-      clearInterval(timeInterval);
-      // end game
-      gameOver();
-    }
   }
-  
-  // Game over, show end screen
-  function gameOver() {
-    endgame = `
-      <h1>Time ran out</h1>
-      <p>Your final score is ${score}</p>
-      <button onclick="location.reload()">Reload</button>
-    `;
-  
-    endgame.style.display = 'flex';
+  else if(timer===0){
+playing=false;
   }
+  time.innerHTML=timer;
+}
+function status(){
+  if (!playing && timer===0){
+    alerrt.innerHTML="Game is over!!!";
+  }
+}
+
