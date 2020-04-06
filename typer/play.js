@@ -3,7 +3,7 @@ let timer=15
 let score=0
 let playing
 
-const level=document.getElementById("option")
+const end=document.getElementById("endgame")
 const display=document.getElementById("text")
 const input=document.getElementById("input")
 const scores=document.querySelector("#score")
@@ -62,6 +62,7 @@ function updatetime()
   }
   else if(timer===0){
 playing=false
+
   }
   time.innerHTML=timer
 }
@@ -69,18 +70,19 @@ function status(){
   if (!playing && timer===0){
     alerrt.innerHTML="Game is over!!!"
     score=-1
-  }
+    gameOver() }
 }
 function matchwords(){
   if(match()){
     playing=true
     timer=15
 showWord(words)
-input.value=""
+input.value=" "
     score++;
   }
   if(score===-1){
     scores.innerHTML=0
+    
   }else{
   scores.innerHTML=score
   }
@@ -96,4 +98,10 @@ function match(){
   }
 }
 
-
+function gameOver() {
+  end.innerHTML = `
+  <h5>Time Out</h5>
+    <button onclick="location.reload()">Reload</button>
+  `;
+end.style.display = 'flex';
+}
