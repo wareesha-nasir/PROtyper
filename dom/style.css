@@ -1,0 +1,53 @@
+
+body{
+    padding:0;
+    margin:0;
+
+}
+#main{
+    color:rgb(155, 18, 18);
+    font-family: 'Cinzel' ,'san serif';
+    position: absolute;
+    left:30%;
+    margin-top: 3%;
+    
+}
+.first{
+    display:inline-block;
+    position: absolute;
+    left:60%;
+    margin-top: 29%;
+    color:rgb(97, 7, 30);
+    font-family: 'Comic Neue', cursive;
+}
+.second{
+    display: inline-block;
+    height: 20%;
+    position: absolute;
+    right:-20%;
+    color:rgb(97, 7, 30);
+margin-top: 29%;
+font-family: 'Comic Neue', cursive;
+}
+.img{
+    display:inline-block;
+    position: absolute;
+    left:55%;
+    margin-top: 50%;
+}
+.img1{
+    display: inline-block;
+    height: 20%;
+    position: absolute;
+    right:-25%;
+margin-top: 50%;
+}
+/*h1{
+    color: blueviolet;
+}
+h2{
+    color: crimson;
+}
+button{
+    background-color: lightgreen;
+}*/
